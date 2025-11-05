@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday, My Love</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+      color: #5a3e36;
+      text-align: center;
+      padding: 2em;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      color: #d36b9c;
+      margin-bottom: 0.3em;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    .countdown {
+      font-size: 2.5em;
+      margin: 1em 0;
+      color: #8b5c7e;
+      font-weight: bold;
+      text-shadow: 0 0 10px #f4a4c0;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .gallery {
+      margin-top: 2em;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .gallery h2 {
+      grid-column: 1 / -1;
+      color: #c94f7c;
+      margin-bottom: 1em;
+      font-size: 2em;
+    }
+
+    .heart-frame {
+      width: 220px;
+      height: 220px;
+      background: pink;
+      clip-path: polygon(50% 0%, 0% 35%, 0% 70%, 50% 100%, 100% 70%, 100% 35%);
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1.5s ease-in;
+      cursor: pointer;
+    }
+
+    .heart-frame:hover {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .heart-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .heart-frame:hover img {
+      transform: scale(1.15);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff69b4; }
+      to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+    }
+
+    .message-box {
+      margin-top: 3em;
+      background: #ffe4e1;
+      padding: 2em;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease-in;
+    }
+
+    .message-box h2 {
+      color: #b94d73;
+      margin-bottom: 1em;
+    }
+
+    .message-box p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    /* 🔍 Lightbox Overlay */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      animation: zoomIn 0.4s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close-btn {
+      position: fixed;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 2em;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      padding: 0.2em 0.5em;
+      transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎀 Happy Birthday, My Love 🎀</h1>
+  <p class="countdown" id="timer">Loading countdown...</p>
+
+  <div class="gallery">
+    <h2>Our Memories Together 💕</h2>
+
+    <!-- Add your images -->
+    <div class="heart-frame"><img src="./pics/photo1.jpg" alt="Us at the waterfall"></div>
+    <div class="heart-frame"><img src="./pics/photo2.jpg" alt="Us smiling together"></div>
+    <div class="heart-frame"><img src="./pics/photo3.jpg" alt="Kayaking adventure"></div>
+    <div class="heart-frame"><img src="./pics/photo4.jpg" alt="My mermaid"></div>
+    <div class="heart-frame"><img src="./pics/photo5.JPG" alt="Partner in crime"></div>
+    <div class="heart-frame"><img src="./pics/photo6.jpg" alt="Our happy place"></div>
+    <div class="heart-frame"><img src="./pics/photo8.jpg" alt="You in my dreams"></div>
+    <div class="heart-frame"><img src="./pics/WhatsApp Image 2025-11-05 at 07.26.28_d838f236.jpg" alt="Forever mine"></div>
+    <div class="heart-frame"><img src="./pics/WhatsApp Image 2025-11-05 at 07.26.48_658d9d2f.jpg" alt="Dream moment"></div>
+    <div class="heart-frame"><img src="./pics/WhatsApp Image 2025-11-05 at 07.27.17_8ab01b1b.jpg" alt="Love forever"></div>
+    <div class="heart-frame"><img src="./pics/WhatsApp Image 2025-11-05 at 07.32.09_b476837a.jpg" alt="Cute memory"></div>
+    <div class="heart-frame"><img src="./pics/WhatsApp Image 2025-11-05 at 07.32.26_f7f8e495.jpg" alt="You and me"></div>
+        <div class="heart-frame"><img src="./pics/20251002_180243.jpg" alt="You in my dreams"></div>
+    <div class="heart-frame"><img src="./pics/20251031_161854.jpg" alt="You in my dreams"></div>
+    <div class="heart-frame"><img src="./pics/IMG-20251002-WA0043.jpg" alt="You in my dreams"></div>
+  </div>
+
+  <div class="message-box">
+    <h2>💌 My Message for You 💌</h2>
+    <p>Every second brings me closer to celebrating you — the most beautiful soul I know.  
+    I can’t wait to make this day as magical as your smile. 💖</p>
+  </div>
+
+  <!-- Lightbox container -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    // Countdown Timer
+    const birthday = new Date("November 6, 2025 00:00:00").getTime();
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      if (distance < 0) {
+        timer.innerHTML = "🎉 It's her Birthday! Let's Celebrate! 🎂";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until her birthday!`;
+    }, 1000);
+
+    // Lightbox functionality
+    const frames = document.querySelectorAll('.heart-frame img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('closeBtn');
+
+    frames.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) lightbox.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
